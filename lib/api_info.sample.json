@@ -1,0 +1,5 @@
+weather:
+    key:  <your api key of openweathermap>
+    city: <your city>
+    api:  http://api.openweathermap.org/data/2.5/weather?q={city}&APPID={key}
+
