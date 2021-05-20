@@ -3,3 +3,5 @@ weather:
     city: <your city>
     api:  http://api.openweathermap.org/data/2.5/weather?q={city}&APPID={key}
 
+pokemon:
+    path: <parent directory path>
