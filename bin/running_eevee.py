@@ -99,7 +99,10 @@ try:
 
                         if valid:
                             unicornhathd.show()
-                            time.sleep(0.1)
+                            if len(poke_image) > 100:
+                                time.sleep(0.05)
+                            else:
+                                time.sleep(0.1)
 
 
         # Show Datatime
