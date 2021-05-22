@@ -78,7 +78,9 @@ try:
         else:
             poke_num = random.randint(0,len(poke_list)-1)
         poke_image = sorted(Path(poke_list[poke_num]).glob('*.*'))
-        poke_range = -(-64 // len(poke_image))
+        poke_range = 64 // len(poke_image)
+        if poke_range == 0:
+            poke_range = 1
 
         unicornhathd.rotation(90)
         for i in range(poke_range):
