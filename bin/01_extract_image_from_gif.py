@@ -26,7 +26,7 @@ def write_frames(frames, name_original, dest_path):
             print('Destionation directory is created: "{}".'.format(dest_path))
 
     for i, f in enumerate(frames):
-        name = '{}/{}-{}{}'.format(dest_path, stem, str(i + 1).zfill(2), extension)
+        name = '{}/{}-{}{}'.format(dest_path, stem, str(i + 1).zfill(3), extension)
         f.save(name)
         if DEBUG_MODE:
             print('A frame is saved as "{}".'.format(name))
