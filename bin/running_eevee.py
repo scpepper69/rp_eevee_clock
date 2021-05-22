@@ -21,8 +21,9 @@ except ImportError:
 
 import unicornhathd
 
-if len(sys.argv) == 2:
+if len(sys.argv) == 3:
     poke_debug = int(sys.argv[1])
+    poke_class = str(sys.argv[2])
 
 FONT = ('/usr/share/fonts/truetype/freefont/FreeMonoBold.ttf', 12)
 #FONT = ('/usr/share/fonts/truetype/freefont/PixelMplus12-Bold.ttf', 12)
@@ -57,7 +58,7 @@ k2c =lambda k: k - 273.15
 url = api.format(city=city, key=apikey)
 
 # pokemon image
-pokemon_path = api_info['pokemon']['path']
+pokemon_path_org = api_info['pokemon']['path']
 
 def imread_web(url):
     res = requests.get(url)
@@ -70,6 +71,16 @@ def imread_web(url):
 
 try:
     while True:
+
+        dt_mm  = str(datetime.datetime.now().strftime('%M'))
+
+        if 'poke_class' in locals():
+            pokemon_path = pokemon_path_org + '/' + poke_class
+        else:
+            if dt_mm == '00' or dt_mm == '30':
+                pokemon_path = pokemon_path_org + '/legend'
+            else:
+                pokemon_path = pokemon_path_org + '/normal'
 
         # Running Eevee
         poke_list = sorted(Path(pokemon_path).glob('*')) 
